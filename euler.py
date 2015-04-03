@@ -428,7 +428,7 @@ for line in triangle_text:
 best_sum = 0
 
 for n in range(2**14-1):
-  # n represents a path, in binary: 0 = "go left", 1 = "go right". 15 total steps per path
+  # n represents a path, in binary: 0 = "go left", 1 = "go right". 14 total steps per path; 15 numbers
   pos = 0
   path = []
   for x in range(15):
