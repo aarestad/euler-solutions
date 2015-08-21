@@ -1,14 +1,4 @@
-from euler_functions import is_prime
-from itertools import permutations
-
-def digit_permutations(n):
-	digits = []
-
-	while n > 0:
-		digits.append(n % 10)
-		n /= 10
-
-	return [int(''.join([str(d) for d in p])) for p in permutations(digits)]
+from euler_functions import is_prime, digit_permutations
 
 for n in range(1000, 10000):
 	if not is_prime(n): continue
