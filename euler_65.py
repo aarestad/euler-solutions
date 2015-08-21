@@ -13,8 +13,8 @@ def convergent(continued_fraction):
 	return base + fraction
 
 def convergent_fraction(cf):
-	if len(cf) == 1:
-		return Fraction(1, cf[0])
+	if len(cf) == 0:
+		return 0
 
 	return Fraction(1, cf[0] + convergent_fraction(cf[1:]))
 
