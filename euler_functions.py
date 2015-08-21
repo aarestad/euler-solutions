@@ -1,3 +1,14 @@
+from itertools import permutations
+
+def digit_permutations(n):
+	digits = []
+
+	while n > 0:
+		digits.append(n % 10)
+		n /= 10
+
+	return [int(''.join([str(d) for d in p])) for p in permutations(digits)]
+
 all_digits = {n for n in range(1, 10)}
 
 def is_pandigital_set(*nums):
