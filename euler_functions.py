@@ -1,3 +1,29 @@
+all_digits = {n for n in range(1, 10)}
+
+def is_pandigital_set(*nums):
+	digits = all_digits.copy()
+	for n in nums:
+		while n > 0:
+			d = n % 10
+			n /= 10
+			if d not in digits: return False
+			try:
+				digits.remove(d)
+			except KeyError:
+				return False
+	return len(digits) == 0
+
+def number_digits(n):
+	if n == 0: return 1
+
+	digits = 0
+
+	while n > 0:
+		n /= 10
+		digits += 1
+
+	return digits
+
 def floyd_cycle_detection(s):
 	tortoise = 1
 	hare = 2
@@ -99,7 +125,7 @@ def find_triplet():
         print a * b * c
         return
 
-def factorize(n):
+def prime_factors(n):
   factors = []
   for p in primes():
     if p*p > n: break
@@ -110,10 +136,14 @@ def factorize(n):
     if i > 0:
       factors.append((p, i));
   if n > 1: factors.append((n, 1))
+  return factors
+
+def divisors(n):
   div = [1]
-  for (p, r) in factors:
+  for (p, r) in prime_factors(n):
     div = [d * p**e for d in div for e in range(r + 1)]
   return div
+
 
 def collatz_sequence(n):
   while n > 1:
