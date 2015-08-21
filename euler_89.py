@@ -47,7 +47,7 @@ def from_roman_numeral(rn):
 
 to_roman_numeral_values = [
 	(1000, 'M'),
-	(900, 'DM'),
+	(900, 'CM'),
 	(500, 'D'),
 	(400, 'CD'),
 	(100, 'C'),
