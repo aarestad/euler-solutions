@@ -3,14 +3,7 @@ import itertools
 import sys
 
 def convergent(continued_fraction):
-	base = Fraction(continued_fraction[0], 1)
-
-	if len(continued_fraction) > 1:
-		fraction = convergent_fraction(continued_fraction[1:])
-	else:
-		fraction = 0
-
-	return base + fraction
+	return Fraction(continued_fraction[0], 1) + convergent_fraction(continued_fraction[1:])
 
 def convergent_fraction(cf):
 	if len(cf) == 0:
@@ -20,12 +13,12 @@ def convergent_fraction(cf):
 
 def e_convergent():
 	yield 2
-	n = 2
+	n = 0
 	while True:
+		n += 2
 		yield 1
 		yield n
 		yield 1
-		n += 2
 
 accuracy = 100
 
