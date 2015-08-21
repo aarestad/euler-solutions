@@ -9,15 +9,12 @@ def digit_permutations(n):
 
 	return [int(''.join([str(d) for d in p])) for p in permutations(digits)]
 
-all_digits = {n for n in range(1, 10)}
-
 def is_pandigital_set(*nums):
-	digits = all_digits.copy()
+	digits = {n for n in range(1, 10)}
 	for n in nums:
 		while n > 0:
 			d = n % 10
 			n /= 10
-			if d not in digits: return False
 			try:
 				digits.remove(d)
 			except KeyError:
