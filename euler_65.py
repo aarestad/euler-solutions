@@ -1,15 +1,5 @@
-from fractions import Fraction
+from euler_functions import convergent
 import itertools
-import sys
-
-def convergent(continued_fraction):
-	return Fraction(continued_fraction[0], 1) + convergent_fraction(continued_fraction[1:])
-
-def convergent_fraction(cf):
-	if len(cf) == 0:
-		return 0
-
-	return Fraction(1, cf[0] + convergent_fraction(cf[1:]))
 
 def e_convergent():
 	yield 2

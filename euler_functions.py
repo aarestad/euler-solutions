@@ -1,4 +1,14 @@
 from itertools import permutations
+from fractions import Fraction
+
+def convergent_fraction(cf):
+	if len(cf) == 0:
+		return 0
+
+	return Fraction(1, cf[0] + convergent_fraction(cf[1:]))
+
+def convergent(continued_fraction):
+	return Fraction(continued_fraction[0], 1) + convergent_fraction(continued_fraction[1:])
 
 def digit_permutations(n):
 	digits = []
