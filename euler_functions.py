@@ -1,5 +1,6 @@
 from itertools import permutations
 from fractions import Fraction
+import math
 
 def convergent_fraction(cf):
 	if len(cf) == 0:
@@ -43,14 +44,7 @@ def is_pandigital_set(*nums):
 
 def number_digits(n):
 	if n == 0: return 1
-
-	digits = 0
-
-	while n > 0:
-		n /= 10
-		digits += 1
-
-	return digits
+	return int(math.log10(n)) + 1
 
 def floyd_cycle_detection(s):
 	tortoise = 1
