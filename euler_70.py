@@ -2,12 +2,8 @@ from __future__ import division
 from euler_functions import *
 import math
 
-def num_digits(n):
-	if n == 0: return 1
-	return int(math.log10(n)) + 1
-
 def are_permutations(m, n):
-	if num_digits(m) != num_digits(n): return False
+	if num_digits(m) != number_digits(n): return False
 
 	m_digits = []
 	n_digits = []
