@@ -17,7 +17,17 @@ def digit_permutations(n):
 		digits.append(n % 10)
 		n /= 10
 
-	return [int(''.join([str(d) for d in p])) for p in permutations(digits)]
+	return [int_from_perm(list(p)) for p in permutations(digits)]
+
+def int_from_perm(digit_list):
+	result = 0
+
+	max_power_ten = len(digit_list)
+
+	for power_ten in range(max_power_ten):
+		result += digit_list.pop() * 10 ** power_ten
+
+	return result
 
 def is_pandigital_set(*nums):
 	digits = {n for n in range(1, 10)}
