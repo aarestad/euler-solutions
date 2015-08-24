@@ -143,9 +143,9 @@ def find_triplet():
         print a * b * c
         return
 
-def prime_factors(n):
+def prime_factors(n, primes=primes()):
   factors = []
-  for p in primes():
+  for p in primes:
     if p*p > n: break
     i = 0
     while n % p == 0:
@@ -155,6 +155,41 @@ def prime_factors(n):
       factors.append((p, i));
   if n > 1: factors.append((n, 1))
   return factors
+
+memoized_prime_factors = {}
+
+def relatively_prime(m, n, primes=primes()):
+  if m in memoized_prime_factors:
+    m_factors = memoized_prime_factors[m]
+  else:
+    m_factors = set([p[0] for p in prime_factors(m, primes)])
+    memoized_prime_factors[m] = m_factors
+
+  if n in memoized_prime_factors:
+    n_factors = memoized_prime_factors[n]
+  else:
+    n_factors = set([p[0] for p in prime_factors(n, primes)])
+    memoized_prime_factors[n] = n_factors
+
+  return m_factors.isdisjoint(n_factors)
+
+def totient_naive(n, primes):
+  num_relative_primes = 0
+
+  for m in range(1, n):
+  	if relatively_prime(m, n, primes):
+	  num_relative_primes += 1
+
+  return num_relative_primes
+
+# https://en.wikipedia.org/wiki/Euler%27s_totient_function#Computing_Euler.27s_totient_function
+def totient(n, primes):
+	totient = n
+
+	for p in prime_factors(n, primes):
+		totient *= 1 - (1.0/p[0])
+
+	return int(totient)
 
 def divisors(n):
   div = [1]
