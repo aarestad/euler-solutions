@@ -2,6 +2,10 @@ from itertools import permutations
 from fractions import Fraction
 import math
 
+def gcd(a, b):
+	if b == 0: return a
+	return gcd(b, a % b)
+
 def convergent_fraction(cf):
 	if len(cf) == 0:
 		return 0
