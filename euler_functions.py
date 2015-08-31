@@ -13,7 +13,7 @@ def convergent_fraction(cf):
 	return Fraction(1, cf[0] + convergent_fraction(cf[1:]))
 
 def convergent(continued_fraction):
-	return Fraction(continued_fraction[0], 1) + convergent_fraction(continued_fraction[1:])
+	return continued_fraction[0] + convergent_fraction(continued_fraction[1:])
 
 def digit_permutations(n):
 	digits = []
