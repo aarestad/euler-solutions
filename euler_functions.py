@@ -250,16 +250,19 @@ def to_letters(n):
   90: 'ninety'
   }
   descrip = ''
-  if n == 1000:
-    return 'onethousand'
+  if n >= 1000:
+    times_1000 = n / 1000
+    descrip += words[times_100]
+    descrip += ' thousand'
+    n %= 1000
+    if n == 0:
+      return descrip # n thousand
   if n >= 100:
     times_100 = n / 100
     descrip += words[times_100]
-    descrip += 'hundred' # so 'one hundred', 'two hundred', etc.
+    descrip += ' hundred' # so 'one hundred', 'two hundred', etc.
     n %= 100
-    if n > 0:
-      descrip += 'and'
-    else:
+    if n == 0:
       return descrip # exactly 'x hundred'
   if n <= 19:
     descrip += words[n] # up to 'nineteen'
@@ -269,3 +272,6 @@ def to_letters(n):
     n %= 10
     if n > 0: descrip += words[n] # 'one' thru 'nine'
   return descrip
+
+def rot13(s):
+  return ''.join([chr((c - 52) % 26 + 65) if c >= 65 and c <= 90 else chr((c - 84) % 26 + 97) if c >= 97 and c <= 122 else chr(c) for c in map(ord, s)])
