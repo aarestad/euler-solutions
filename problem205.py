@@ -1,34 +1,23 @@
+import itertools
+
 pp_probs = {}
 cc_probs = {}
 
-for d1 in range(1, 5):
-    for d2 in range(1, 5):
-        for d3 in range(1, 5):
-            for d4 in range(1, 5):
-                for d5 in range(1, 5):
-                    for d6 in range(1, 5):
-                        for d7 in range(1, 5):
-                            for d8 in range(1, 5):
-                                for d9 in range(1, 5):
-                                    combo_sum = d1 + d2 + d3 + d4 + d5 + d6 + d7 + d8 + d9
+for pp_combo in itertools.product(range(1, 5), repeat=9):
+    combo_sum = sum(pp_combo)
 
-                                    if combo_sum in pp_probs:
-                                        pp_probs[combo_sum] += 1
-                                    else:
-                                        pp_probs[combo_sum] = 1
+    if combo_sum in pp_probs:
+        pp_probs[combo_sum] += 1
+    else:
+        pp_probs[combo_sum] = 1
 
-for d1 in range(1, 7):
-    for d2 in range(1, 7):
-        for d3 in range(1, 7):
-            for d4 in range(1, 7):
-                for d5 in range(1, 7):
-                    for d6 in range(1, 7):
-                        combo_sum = d1 + d2 + d3 + d4 + d5 + d6
+for cc_combo in itertools.product(range(1, 7), repeat=6):
+    combo_sum = sum(cc_combo)
 
-                        if combo_sum in cc_probs:
-                            cc_probs[combo_sum] += 1
-                        else:
-                            cc_probs[combo_sum] = 1
+    if combo_sum in cc_probs:
+        cc_probs[combo_sum] += 1
+    else:
+        cc_probs[combo_sum] = 1
 
 print(pp_probs)
 print(cc_probs)
