@@ -22,5 +22,5 @@ while numer > 0:
 	numer_digit_sum += numer % 10
 	numer /= 10
 
-print one_hundredth_convergent
-print numer_digit_sum
+print(one_hundredth_convergent)
+print(numer_digit_sum)

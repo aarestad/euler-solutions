@@ -12,7 +12,7 @@ long_chains = 0
 seen_numbers = set()
 
 for n in range(1, 1000000):
-	if n % 10000 == 0: print n
+	if n % 10000 == 0: print(n)
 	current_loop = n
 
 	seen_numbers.clear()
@@ -26,4 +26,4 @@ for n in range(1, 1000000):
 	if len(seen_numbers) == 60:
 		long_chains += 1
 
-print long_chains, "total chains of 60"
+print(long_chains, "total chains of 60")

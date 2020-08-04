@@ -41,11 +41,11 @@ def magic_5_gon(nums):
 
 	return None
 
-for p in itertools.permutations(range(1, 11)):
+for p in itertools.permutations(list(range(1, 11))):
 	possible_5gon = magic_5_gon(p)
 	if possible_5gon is not None and len(possible_5gon) == 16 and\
 		possible_5gon[0:2] == '65': # this last "and" clause comes from eyeballing all the possible 16-length reprs
-		print possible_5gon # only one answer, printed 5 times
+		print(possible_5gon) # only one answer, printed 5 times
 
 # the answer:
 #    6

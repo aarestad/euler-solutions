@@ -1,4 +1,4 @@
-from __future__ import division
+
 
 from euler_functions import totient, primes
 import itertools
@@ -16,10 +16,10 @@ for p in primes():
 		break
 
 for n in range(2, 1000001):
-	if n % 100000 == 0: print n
+	if n % 100000 == 0: print(n)
 	totient_n = totient(n, primes_under_a_thousand)
 	ratio = n / totient_n
 	if ratio > best_ratio:
-		print "new best:", n, "totient:", totient_n, "ratio:", ratio
+		print("new best:", n, "totient:", totient_n, "ratio:", ratio)
 		best_ratio = ratio
 		best_n = n

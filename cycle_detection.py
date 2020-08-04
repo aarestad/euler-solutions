@@ -51,4 +51,4 @@ for d in range (2, 1000):
     lam = floyd(recip)[0]
     if lam > longest_lambda:
         longest_lambda = lam
-        print d, recip, longest_lambda
+        print(d, recip, longest_lambda)

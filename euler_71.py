@@ -17,10 +17,10 @@ def add_fractions_for(d):
 		fractions_below_limit.append(f)
 
 for d in range(1, 1000001):
-	if d % 100 == 0: print d
+	if d % 100 == 0: print(d)
 	add_fractions_for(d)
 
 
 sort(fractions_below_limit)
 
-print fractions_below_limit[-2]
+print(fractions_below_limit[-2])

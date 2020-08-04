@@ -102,7 +102,7 @@ for hand in hands:
 	if p1_hand > p2_hand:
 		player_1_wins += 1
 
-print player_1_wins
+print(player_1_wins)
 
 # print get_hand_score(["AH", "KH", "QH", "JH", "TH"])
 # print get_hand_score(["AH", "KH", "QH", "JD", "TH"])

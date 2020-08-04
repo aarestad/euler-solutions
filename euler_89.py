@@ -80,7 +80,7 @@ for original_roman in numerals:
 	original_roman = original_roman.rstrip()
 	decimal_rep = from_roman_numeral(original_roman)
 	best_roman_rep = to_roman_numeral(decimal_rep)
-	print original_roman, best_roman_rep, decimal_rep
+	print(original_roman, best_roman_rep, decimal_rep)
 	savings += len(original_roman) - len(best_roman_rep)
 
-print "savings: %s" % (savings,)
+print("savings: %s" % (savings,))

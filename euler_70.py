@@ -1,4 +1,4 @@
-from __future__ import division
+
 from euler_functions import *
 import math
 
@@ -35,10 +35,10 @@ if __name__ == '__main__':
 	best_ratio = 1000000
 
 	for n in range(2, 10 ** 7):
-		if n % 10000 == 0: print n
+		if n % 10000 == 0: print(n)
 		n_totient = totient(n, possible_prime_factors)
 		if are_permutations(n, n_totient):
 			ratio = n / n_totient
 			if ratio < best_ratio:
-				print "new best n:", n, "totient:", n_totient, "ratio:", ratio
+				print("new best n:", n, "totient:", n_totient, "ratio:", ratio)
 				best_ratio = ratio

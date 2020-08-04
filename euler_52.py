@@ -4,7 +4,7 @@ n = 0
 
 while True:
 	n += 1
-	if n % 10000 == 0: print n
+	if n % 10000 == 0: print(n)
 
 	n6 = 6*n
 
@@ -20,5 +20,5 @@ while True:
 	n_permutations = digit_permutations(n)
 
 	if n in n_permutations and n2 in n_permutations and n3 in n_permutations and n4 in n_permutations and n5 in n_permutations and n6 in n_permutations:
-		print n, n2, n3, n4, n5, n6
+		print(n, n2, n3, n4, n5, n6)
 		break

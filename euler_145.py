@@ -30,7 +30,7 @@ threads = []
 reversible_nums = {}
 
 for n in range(8):
-    threads.append(Process(target=count_reversibles, args=(range(125000000*n, 125000000*(n+1)),)))
+    threads.append(Process(target=count_reversibles, args=(list(range(125000000*n, 125000000*(n+1))),)))
 
 for t in threads:
     t.start()
@@ -38,4 +38,4 @@ for t in threads:
 for t in threads:
     t.join()
 
-print(len(reversible_nums.keys()))
+print((len(list(reversible_nums.keys()))))

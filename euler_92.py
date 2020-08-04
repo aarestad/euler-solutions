@@ -23,7 +23,7 @@ for x in range(1, 10000000):
 		numbers_that_end_up_at_89 += 1
 
 	if loop_size > largest_loop:
-		print "loop size %s for starting value %s" % (loop_size, original_x)
+		print("loop size %s for starting value %s" % (loop_size, original_x))
 		largest_loop = loop_size
 
-print numbers_that_end_up_at_89
+print(numbers_that_end_up_at_89)

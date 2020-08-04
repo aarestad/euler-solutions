@@ -3,7 +3,7 @@ import itertools
 pp_probs = {}
 cc_probs = {}
 
-for pp_combo in itertools.product(range(1, 5), repeat=9):
+for pp_combo in itertools.product(list(range(1, 5)), repeat=9):
     combo_sum = sum(pp_combo)
 
     if combo_sum in pp_probs:
@@ -11,7 +11,7 @@ for pp_combo in itertools.product(range(1, 5), repeat=9):
     else:
         pp_probs[combo_sum] = 1
 
-for cc_combo in itertools.product(range(1, 7), repeat=6):
+for cc_combo in itertools.product(list(range(1, 7)), repeat=6):
     combo_sum = sum(cc_combo)
 
     if combo_sum in cc_probs:
@@ -32,7 +32,7 @@ print(denominator)
 
 total_pp_ways_to_win = 0
 
-for cc_sum, cc_sum_combos in cc_probs.items():
+for cc_sum, cc_sum_combos in list(cc_probs.items()):
     pp_winners = (pp_sum for pp_sum in pp_probs if pp_sum > cc_sum)
 
     for winner in pp_winners:
@@ -40,4 +40,4 @@ for cc_sum, cc_sum_combos in cc_probs.items():
 
 print(total_pp_ways_to_win)
 
-print(total_pp_ways_to_win / denominator)
+print((total_pp_ways_to_win / denominator))

@@ -16,5 +16,5 @@ for x in range(9123, 9876): # much smaller range: http://www.mathblog.dk/project
 			num_digits_in_products += number_digits(p)
 
 		if is_pandigital_set(*products):
-			print products
+			print(products)
 			break
