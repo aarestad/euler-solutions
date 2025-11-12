@@ -6,7 +6,7 @@ pandigital_products = set()
 for x in range(10000):
     limit = 5 - number_digits(x)
 
-    for y in range(10 ** limit):
+    for y in range(10**limit):
         product = x * y
 
         if number_digits(product) + number_digits(x) + number_digits(y) != 9:

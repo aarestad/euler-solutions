@@ -6,6 +6,7 @@ from decimal import *
 
 # hat tip to http://ubuntuforums.org/showthread.php?t=865953
 
+
 def Floyd(x):  # Using Floyd's cycle detection algorithm
     # Only proceed if there are enough decimal numbers to actually find a large cycle
     if len(x) > 100:
@@ -89,17 +90,17 @@ def verifyCycle(x, mu, lam):
 def printResult(a, d, mu, lam):
     # Print the result on a form that's easily readable
     if (lam > 0) or (mu > 0):
-        number = '1/' + str(d) + ' = 0.'
+        number = "1/" + str(d) + " = 0."
         for i in range(2, mu + 2):
             number = number + a[i]
-        number = number + '('
+        number = number + "("
         for i in range(mu + 2, mu + lam + 2):
             number = number + a[i]
-        number = number + ')' + ' lambda = ' + str(lam) + ' mu = ' + str(mu)
+        number = number + ")" + " lambda = " + str(lam) + " mu = " + str(mu)
     elif (lam == -1) or (mu == -1):
-        number = '1/' + str(d) + ' could not be calculated.'
+        number = "1/" + str(d) + " could not be calculated."
     else:
-        number = '1/' + str(d) + ' = ' + str(Decimal(1) / Decimal(d))
+        number = "1/" + str(d) + " = " + str(Decimal(1) / Decimal(d))
     print(number)
 
 

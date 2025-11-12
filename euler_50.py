@@ -17,7 +17,8 @@ for i in range(len(primes_below_a_million)):
     while i < len(primes_below_a_million):
         prime_list.append(primes_below_a_million[i])
         prime_sum = reduce(lambda x, y: x + y, prime_list)
-        if prime_sum >= 1000000: break
+        if prime_sum >= 1000000:
+            break
         num_primes += 1
         i += 1
 

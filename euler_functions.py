@@ -4,7 +4,8 @@ import math
 
 
 def gcd(a, b):
-    if b == 0: return a
+    if b == 0:
+        return a
     return gcd(b, a % b)
 
 
@@ -35,7 +36,7 @@ def int_from_perm(digit_list):
     max_power_ten = len(digit_list)
 
     for power_ten in range(max_power_ten):
-        result += digit_list.pop() * 10 ** power_ten
+        result += digit_list.pop() * 10**power_ten
 
     return result
 
@@ -54,7 +55,8 @@ def is_pandigital_set(*nums):
 
 
 def number_digits(n):
-    if n == 0: return 1
+    if n == 0:
+        return 1
     return int(math.log10(n)) + 1
 
 
@@ -114,26 +116,34 @@ def find_largest_palindrome():
 
 
 def is_prime(n):
-    if n == 2 or n == 3: return True
-    if n < 2 or n % 2 == 0: return False
-    if n < 9: return True
-    if n % 3 == 0: return False
-    r = int(n ** 0.5)
+    if n == 2 or n == 3:
+        return True
+    if n < 2 or n % 2 == 0:
+        return False
+    if n < 9:
+        return True
+    if n % 3 == 0:
+        return False
+    r = int(n**0.5)
     f = 5
     while f <= r:
-        if n % f == 0: return False
-        if n % (f + 2) == 0: return False
+        if n % f == 0:
+            return False
+        if n % (f + 2) == 0:
+            return False
         f += 6
     return True
 
 
 def nth_prime(n):
-    if n == 1: return 2
+    if n == 1:
+        return 2
     p = 3
     n -= 2
     while n > 0:
         p += 2
-        while not is_prime(p): p += 2
+        while not is_prime(p):
+            p += 2
         n -= 1
     return p
 
@@ -153,7 +163,8 @@ def primes():
     while True:
         yield p
         p += 2
-        while not is_prime(p): p += 2
+        while not is_prime(p):
+            p += 2
 
 
 # Euler 9
@@ -162,7 +173,7 @@ def find_triplet():
         remaining_sum = 1000 - a
         for b in range(1, remaining_sum + 1):
             c = 1000 - a - b
-            if a ** 2 + b ** 2 == c ** 2:
+            if a**2 + b**2 == c**2:
                 print(a, b, c)
                 print(a * b * c)
                 return
@@ -171,14 +182,16 @@ def find_triplet():
 def prime_factors(n, primes=primes()):
     factors = []
     for p in primes:
-        if p * p > n: break
+        if p * p > n:
+            break
         i = 0
         while n % p == 0:
             n //= p
             i += 1
         if i > 0:
-            factors.append((p, i));
-    if n > 1: factors.append((n, 1))
+            factors.append((p, i))
+    if n > 1:
+        factors.append((n, 1))
     return factors
 
 
@@ -223,8 +236,8 @@ def totient(n, primes):
 
 def divisors(n):
     div = [1]
-    for (p, r) in prime_factors(n):
-        div = [d * p ** e for d in div for e in range(r + 1)]
+    for p, r in prime_factors(n):
+        div = [d * p**e for d in div for e in range(r + 1)]
     return div
 
 
@@ -239,52 +252,53 @@ def collatz_sequence(n):
 
 def nCr(n, r):
     import math
+
     f = math.factorial
     return f(n) / f(r) / f(n - r)
 
 
 def to_letters(n):
     words = {
-        1: 'one',
-        2: 'two',
-        3: 'three',
-        4: 'four',
-        5: 'five',
-        6: 'six',
-        7: 'seven',
-        8: 'eight',
-        9: 'nine',
-        10: 'ten',
-        11: 'eleven',
-        12: 'twelve',
-        13: 'thirteen',
-        14: 'fourteen',
-        15: 'fifteen',
-        16: 'sixteen',
-        17: 'seventeen',
-        18: 'eighteen',
-        19: 'nineteen',
-        20: 'twenty',
-        30: 'thirty',
-        40: 'forty',
-        50: 'fifty',
-        60: 'sixty',
-        70: 'seventy',
-        80: 'eighty',
-        90: 'ninety'
+        1: "one",
+        2: "two",
+        3: "three",
+        4: "four",
+        5: "five",
+        6: "six",
+        7: "seven",
+        8: "eight",
+        9: "nine",
+        10: "ten",
+        11: "eleven",
+        12: "twelve",
+        13: "thirteen",
+        14: "fourteen",
+        15: "fifteen",
+        16: "sixteen",
+        17: "seventeen",
+        18: "eighteen",
+        19: "nineteen",
+        20: "twenty",
+        30: "thirty",
+        40: "forty",
+        50: "fifty",
+        60: "sixty",
+        70: "seventy",
+        80: "eighty",
+        90: "ninety",
     }
-    descrip = ''
+    descrip = ""
     if n >= 1000:
         times_1000 = n / 1000
         descrip += words[times_100]
-        descrip += ' thousand'
+        descrip += " thousand"
         n %= 1000
         if n == 0:
             return descrip  # n thousand
     if n >= 100:
         times_100 = n / 100
         descrip += words[times_100]
-        descrip += ' hundred'  # so 'one hundred', 'two hundred', etc.
+        descrip += " hundred"  # so 'one hundred', 'two hundred', etc.
         n %= 100
         if n == 0:
             return descrip  # exactly 'x hundred'
@@ -294,11 +308,19 @@ def to_letters(n):
         times_10 = n / 10
         descrip += words[times_10 * 10]  # 'twenty', 'thirty,'' etc.
         n %= 10
-        if n > 0: descrip += words[n]  # 'one' thru 'nine'
+        if n > 0:
+            descrip += words[n]  # 'one' thru 'nine'
     return descrip
 
 
 def rot13(s):
-    return ''.join(
-        [chr((c - 52) % 26 + 65) if c >= 65 and c <= 90 else chr((c - 84) % 26 + 97) if c >= 97 and c <= 122 else chr(c)
-         for c in map(ord, s)])
+    return "".join(
+        [
+            (
+                chr((c - 52) % 26 + 65)
+                if c >= 65 and c <= 90
+                else chr((c - 84) % 26 + 97) if c >= 97 and c <= 122 else chr(c)
+            )
+            for c in map(ord, s)
+        ]
+    )

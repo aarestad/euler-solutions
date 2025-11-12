@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # coding=utf8
 
+
 def floyd(s):
     # Main phase of algorithm: finding a repetition x_i = x_2i
     # The hare moves twice as quickly as the tortoise and
@@ -30,7 +31,7 @@ def floyd(s):
     tortoise = 0
     while s[tortoise] != s[hare]:
         tortoise += 1
-        hare += 1   # Hare and tortoise move at same speed
+        hare += 1  # Hare and tortoise move at same speed
         mu += 1
 
     # Find the length of the shortest cycle starting from x_μ
@@ -44,10 +45,11 @@ def floyd(s):
 
     return lam, mu
 
+
 longest_lambda = 0
 
-for d in range (2, 1000):
-    recip = '{0:.100f}'.format(1.0/d)
+for d in range(2, 1000):
+    recip = "{0:.100f}".format(1.0 / d)
     lam = floyd(recip)[0]
     if lam > longest_lambda:
         longest_lambda = lam

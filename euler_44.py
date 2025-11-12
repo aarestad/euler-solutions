@@ -10,7 +10,9 @@ def pentagonal_numbers():
 
 
 def is_pentagonal(n):
-    x = (math.sqrt(24 * n + 1) + 1) / 6  # inverse function: https://en.wikipedia.org/wiki/Pentagonal_number
+    x = (
+        math.sqrt(24 * n + 1) + 1
+    ) / 6  # inverse function: https://en.wikipedia.org/wiki/Pentagonal_number
     return x == int(x)
 
 
@@ -22,7 +24,18 @@ n = 0
 for p1 in pentagonals:
     n += 1
     for p2 in pentagonals[n:]:
-        if is_pentagonal(p1 + p2) and is_pentagonal(abs(p1 - p2)) and best_difference > abs(p1 - p2):
+        if (
+            is_pentagonal(p1 + p2)
+            and is_pentagonal(abs(p1 - p2))
+            and best_difference > abs(p1 - p2)
+        ):
             best_difference = abs(p1 - p2)
-            print("%s %s new best difference: %s" % (p1, p2, best_difference,))
+            print(
+                "%s %s new best difference: %s"
+                % (
+                    p1,
+                    p2,
+                    best_difference,
+                )
+            )
             break  # no sense in going higher
